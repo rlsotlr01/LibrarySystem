@@ -59,7 +59,6 @@ public class Book {
 		System.out.println("책 id : " + book_id);
 		System.out.println("저자 : " + book_author);
 		System.out.println();
-		
 	}
 	
 }

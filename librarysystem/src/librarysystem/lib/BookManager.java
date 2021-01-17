@@ -20,22 +20,25 @@ public class BookManager {
 
 		Scanner scan = new Scanner(System.in);
 		int choice = scan.nextInt();
-		
-		if(choice == 1) {
-			System.out.println("전체 도서 목록을 출력합니다.");
-			System.out.println("현재 도서관에 존재하는 책의 목록은 아래와 같습니다.");
-			print_book_list();
-			return; // 또는 while 로 continue 해야될 것 같은데.
-		}else if(choice == 2) {
-			System.out.println("저자를 검색합니다. 저자명을 입력해주세요.");
-			System.out.print("저자명 :");
-			String author_name = scan.nextLine();
-			
-		}else if(choice == 3) {
-			System.out.println("도서명을 검색합니다. 도서명을 입력해주세요.");
-			System.out.print("도서명 :");
-			String book_name = scan.nextLine();
-			search_book_with_name(book_name);
+		while(true) {
+			if(choice == 1) {
+				System.out.println("전체 도서 목록을 출력합니다.");
+				System.out.println("현재 도서관에 존재하는 책의 목록은 아래와 같습니다.");
+				print_book_list();
+				continue; // 또는 while 로 continue 해야될 것 같은데.
+			}else if(choice == 2) {
+				System.out.println("저자를 검색합니다. 저자명을 입력해주세요.");
+				System.out.print("저자명 :");
+				String author_name = scan.nextLine();
+				search_book_with_author(author_name);
+				break;
+			}else if(choice == 3) {
+				System.out.println("도서명을 검색합니다. 도서명을 입력해주세요.");
+				System.out.print("도서명 :");
+				String book_name = scan.nextLine();
+				search_book_with_name(book_name);
+				break;
+			}			
 		}
 		
 	}

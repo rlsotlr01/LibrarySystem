@@ -2,7 +2,7 @@ package librarysystem.lib;
 
 import java.util.ArrayList;
 
-public class Member {
+public class Member implements Comparable<Member> {
 	private String name;
 	private String dial_number;
 	private String member_id;
@@ -43,6 +43,22 @@ public class Member {
 	}
 	public void remove_reserved_book(Book reserved_book) {
 		reserved_book_list.remove(reserved_book);
+	}
+	
+	public void to_string() {
+		System.out.println("회원명 : " + name);
+		System.out.println("회원 id : " + member_id);
+		System.out.println("연락처 : " + dial_number);
+		System.out.println();
+	}
+	
+	@Override
+	public int compareTo(Member member) {
+		int result = this.name.compareTo(member.getName());
+		if(result == 0) { // 결과가 같을 경우엔 id를 비교한다.
+			result = this.member_id.compareTo(member.getMember_id());
+		}
+		return result;
 	}
 	
 	
